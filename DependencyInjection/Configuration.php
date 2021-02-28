@@ -14,10 +14,9 @@ class Configuration implements ConfigurationInterface {
 	 */
 	public function getConfigTreeBuilder() {
 		// All parameters that user can set are under nordeus_crowd_user section in user's config file (app/config/config.yaml)
-		$treeBuilder = new TreeBuilder();
-		$rootNode = $treeBuilder->root('nordeus_crowd_user');
+		$treeBuilder = new TreeBuilder('nordeus_crowd_user');
 
-		$rootNode
+		$treeBuilder->getRootNode()
 			->children()
 				->scalarNode('crowd_application_name')
 					->isRequired()
