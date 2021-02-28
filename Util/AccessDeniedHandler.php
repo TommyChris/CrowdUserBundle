@@ -5,7 +5,7 @@ namespace Nordeus\CrowdUserBundle\Util;
 use Nordeus\CrowdUserBundle\CrowdService\Exceptions\ApplicationAccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\Routing\Router;
+use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Http\Authorization\AccessDeniedHandlerInterface;
@@ -24,9 +24,9 @@ class AccessDeniedHandler implements AccessDeniedHandlerInterface {
 	/**
 	 * @param HttpKernelInterface $httpKernel
 	 * @param HttpUtils $httpUtils
-	 * @param Router $router
+	 * @param RouterInterface $router
 	 */
-	public function __construct(HttpKernelInterface $httpKernel, HttpUtils $httpUtils, Router $router) {
+	public function __construct(HttpKernelInterface $httpKernel, HttpUtils $httpUtils, RouterInterface $router) {
 		$this->httpKernel = $httpKernel;
 		$this->httpUtils = $httpUtils;
 		$this->router = $router;
