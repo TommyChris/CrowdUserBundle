@@ -53,7 +53,7 @@ class CrowdSSOAuthenticationListener {
 	 * 
 	 * @param GetResponseEvent $event
 	 */
-	public function __invoke(RequestEvent $event)
+	public function __invoke(RequestEvent $event) {
 		$request = $event->getRequest();
 
 		if (!$request->cookies->has($this->ssoCookieNameForReading)) {
