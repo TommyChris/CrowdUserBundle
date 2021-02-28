@@ -2,16 +2,16 @@
 
 namespace Nordeus\CrowdUserBundle\Security\Authentication;
 
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class CrowdResponseListener implements EventSubscriberInterface {
 
 	/**
-	 * @param FilterResponseEvent $event
+	 * @param ResponseEvent $event
 	 */
-	public function onKernelResponse(FilterResponseEvent $event) {
+	public function onKernelResponse(ResponseEvent $event) {
 		$request = $event->getRequest();
 		$response = $event->getResponse();
 
