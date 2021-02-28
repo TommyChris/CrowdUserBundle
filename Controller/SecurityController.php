@@ -37,11 +37,11 @@ class SecurityController extends AbstractController {
 			$csrfToken = $this->get('security.csrf.token_manager')->getToken('authenticate')->getValue();
 		}
 
-		return array(
+		return [
 			'last_username' => $lastUsername,
 			'error' => $error,
 			'csrf_token' => $csrfToken,
-		);
+		];
 	}
 
 	/**
