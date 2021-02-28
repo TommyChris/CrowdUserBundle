@@ -3,8 +3,7 @@
 namespace Nordeus\CrowdUserBundle\Security\Authentication;
 
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\Security\Http\Firewall\ListenerInterface;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Security;
@@ -12,7 +11,7 @@ use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterfac
 use Symfony\Component\HttpFoundation\Cookie;
 use Psr\Log\LoggerInterface;
 
-class CrowdSSOAuthenticationListener implements ListenerInterface {
+class CrowdSSOAuthenticationListener {
 
 	/**
 	 * This attribute name is used as a indication for CrowdResponseListener to cancel sso cookie,
@@ -54,7 +53,7 @@ class CrowdSSOAuthenticationListener implements ListenerInterface {
 	 * 
 	 * @param GetResponseEvent $event
 	 */
-	public function handle(GetResponseEvent $event) {
+	public function __invoke(RequestEvent $event)
 		$request = $event->getRequest();
 
 		if (!$request->cookies->has($this->ssoCookieNameForReading)) {
