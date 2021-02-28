@@ -3,12 +3,12 @@
 namespace Nordeus\CrowdUserBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
 
-class SecurityController extends Controller {
+class SecurityController extends AbstractController {
 
 	/**
 	 * @Route("/login", name="nordeus_crowd_user_login")
